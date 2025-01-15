@@ -39,6 +39,6 @@ userSchema.pre('save', function (next) {
 });
 
 // Create a model from the schema
-const User = mongoose.model('User', userSchema);
+const AuthUser = mongoose.model('User', userSchema);
 
-module.exports = User;
+module.exports = AuthUser;
