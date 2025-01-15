@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = "https://auth-1ozd-megh-shah-08s-projects.vercel.app";
 const LoginRegisterForm = () => {
 
   const register =async () => {
