@@ -39,7 +39,7 @@ const loginUser = async (username,password) => {
     }
 
 }
-
+//app only ends if user logs in
 const appStart = () => {
     console.log("\n****AUTH USING NodeJs!****");
     console.log("Enter 1 for SignUp -> Register User\n");
