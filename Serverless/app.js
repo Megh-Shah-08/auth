@@ -8,7 +8,7 @@ const registerUser = async (username,password)=> {
     const userExists = userDB.find(user => user.username===username)
     if(userExists){
         console.log("User already exists!\n");
-        // appStart()
+        appStart()
     }else{
         const saltRounds = 10;
         const passwordHash = await bcrypt.hash(password,saltRounds);
@@ -24,7 +24,7 @@ const loginUser = async (username,password) => {
     if(!userExists){
         console.log("User doesn't exists!\n");
         console.log("Register First!\n");
-        // appStart();
+        appStart();
     }else{
         const user = userDB.find(user => user.username===username)
         const passwordCompare = await bcrypt.compare(password,user.password);
@@ -34,7 +34,7 @@ const loginUser = async (username,password) => {
         }else{
             console.log("Incorrect Credentials!\n");
             console.log("Try Again!\n");
-            // appStart();
+            appStart();
         }
     }
 
@@ -59,7 +59,7 @@ const appStart = () => {
             
         default:
             console.log("Invalid Option!");
-            // appStart()
+            appStart()
     }
 }
 
