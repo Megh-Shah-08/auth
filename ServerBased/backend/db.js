@@ -1,7 +1,6 @@
 // db.js
 const mongoose = require('mongoose');
 const connectToMongoDB = async () => {
-  console.log("started");
   try {
     // Replace with your MongoDB Atlas connection string
     const connectionString ="mongodb+srv://meghshah810:HqfZyJYgIafLj2tB@clusteripl.un4pu.mongodb.net/?retryWrites=true&w=majority&appName=ClusterIPL";

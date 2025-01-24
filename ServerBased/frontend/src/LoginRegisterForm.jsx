@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-const BASE_URL = "http://localhost:3001/";
+const BASE_URL = "https://auth-1ozd-megh-shah-08s-projects.vercel.app";
 const LoginRegisterForm = () => {
 
   const register =async () => {
@@ -16,7 +16,7 @@ const LoginRegisterForm = () => {
       })
     })
     const data = await response.json();
-    console.log(data);
+    alert(data["message"])
     
   } 
   const login =async () => {
@@ -31,8 +31,8 @@ const LoginRegisterForm = () => {
         password:password
       })
     })
-    const data = await response.json();
-    console.log(data);
+    const data = await response.json(); 
+    alert(data["message"])
   } 
   // State for form fields
   const [name, setName] = useState('');
@@ -45,7 +45,6 @@ const LoginRegisterForm = () => {
   // State for form toggle (whether to show login or registration form)
   const [isLogin, setIsLogin] = useState(false);
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -55,16 +54,14 @@ const LoginRegisterForm = () => {
         setError('Both fields are required!');
         return;
       }
-      // Example: Handle login (integrate with API here)
-      console.log('User logged in:', { email, password });
+      login();
     } else {
       // Registration form validation
       if (!name || !email || !password) {
         setError('All fields are required!');
         return;
       }
-      // Example: Handle registration (integrate with API here)
-      console.log('User registered:', { name, email, password });
+      register();
     }
 
     // Reset the form after successful submission
@@ -73,6 +70,8 @@ const LoginRegisterForm = () => {
     setPassword('');
     setError('');
   };
+
+  
 
   return (
     <div style={styles.container}>
@@ -117,7 +116,7 @@ const LoginRegisterForm = () => {
           />
         </div>
 
-        <button type="submit" style={styles.submitButton}>
+        <button type="submit" style={styles.submitButton} >
           {isLogin ? 'Login' : 'Register'}
         </button>
       </form>
@@ -131,6 +130,7 @@ const LoginRegisterForm = () => {
       >
         {isLogin ? 'Don’t have an account? Register here' : 'Already have an account? Login here'}
       </button>
+      {error && <p className='error'>{error}</p>}
     </div>
   );
 };
